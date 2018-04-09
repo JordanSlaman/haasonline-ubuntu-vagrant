@@ -1,0 +1,4 @@
+./idea/
+./vagrant/
+./keys/*
+./synced_folder/linux32.tar.gz
