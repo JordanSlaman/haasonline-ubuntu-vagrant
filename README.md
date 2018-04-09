@@ -6,7 +6,7 @@ A Vagrantfile for HaasOnline running on Ubuntu 16.04
 
 ### Vagrant
 
-Vagrant is a tool that will allow you to easily setup and tear down servers in loval VM's or on cloud providers.
+Vagrant is a tool that will allow you to easily setup and tear down servers in local VM's or on cloud providers.
 
 By changing a couple parameters you can easily get a copy of your HaasOnline server running in the cloud for your trading, or locally to test config changes.
 
@@ -84,3 +84,5 @@ Place a copy of the linux32.tar.gz file in the `synced_folder` folder.
 `vagrant ssh` Will connect you, or you can use `ssh root@<IP> -i ./keys/haas-ubuntu`
 
 `vagrant destroy` Deletes the droplet.
+
+`<IP>:8090` visiting the IP your browser with port 8090 should show you a dashboard. 

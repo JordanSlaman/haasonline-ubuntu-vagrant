@@ -17,7 +17,7 @@ Vagrant.configure("2") do |config|
         provider.token = 'DIGITAL_OCEAN_TOKEN'
         provider.image = 'ubuntu-16-04-x64'
         provider.region = 'sgp1'
-        provider.size = '1gb'
+        provider.size = 's-1vcpu-1gb'
       end
 
       config.vm.provision "shell", inline: "/bin/sh /synced_folder/provision.sh"

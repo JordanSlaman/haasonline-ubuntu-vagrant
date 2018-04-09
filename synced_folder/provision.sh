@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-rm -rf /vagrant/keys
-echo "kill_haas() { killall mono; rm /tmp/HTS.exe.lock}" >> ~/.bash_profile
-
 # Get Mono
 apt-get update
 apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
@@ -13,17 +10,23 @@ apt-get -y install mono-complete
 apt-get -y upgrade
 
 # Setup Haasbot
-tar -zxvf /vagrant/linux32.tar.gz ~/haasonline/
+mkdir ~/haasonline/
+tar -zxvf /synced_folder/linux32.tar.gz -C ~/haasonline/
 bash ~/haasonline/BetaUpdate.sh
 bash ~/haasonline/Haasbot.sh
-source ~/.bash_profile
-kill_haas
-cp /vagrant/MainSettings.xml ~/HTS/Settings/MainSettings.XML
+killall mono
+rm /tmp/HTS.exe.lock
+
+touch ~/ip
+curl ifconfig.co > ~/ip
+python3 /synced_folder/fix_settings.py
 bash ~/haasonline/Haasbot.sh
 
 # Open Haas ports
 ufw allow 8090
 ufw allow 8092
+
+cat ~/ip
 
 echo "Provisoned."
 
