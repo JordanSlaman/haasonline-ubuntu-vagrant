@@ -1,8 +1,7 @@
 with open("/root/ip", "r") as ip_file:
     ip = ip_file.readline().strip()
 
-data = """
-<?xml version="1.0"?>
+data = """<?xml version="1.0"?>
 <TradeServerInstanceSettings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ForcePriceServer />
   <RelayServerURL />
@@ -37,4 +36,4 @@ data = """
 with open("/root/HTS/Settings/MainSettings.XML", "w") as settings_file:
     settings_file.write(data)
 
-print ("IP: ", ip)
+print("IP: ", ip)

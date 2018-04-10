@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# Get our IP
+touch ~/ip
+curl -s ifconfig.co -o ~/ip
+
 # Get Mono
 apt-get update
 apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
@@ -17,14 +21,14 @@ bash ~/haasonline/Haasbot.sh
 killall mono
 rm /tmp/HTS.exe.lock
 
-touch ~/ip
-curl ifconfig.co > ~/ip
 python3 /synced_folder/fix_settings.py
 bash ~/haasonline/Haasbot.sh
 
 # Open Haas ports
 ufw allow 8090
 ufw allow 8092
+
+sleep 10
 
 cat ~/ip
 
